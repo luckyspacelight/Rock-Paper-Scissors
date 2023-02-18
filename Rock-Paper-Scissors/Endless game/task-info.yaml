@@ -1,0 +1,233 @@
+type: edu
+files:
+- name: src/rockpaperscissors/Main.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    public class Main {
+        public static void main(String[] args) {
+            // write your code here
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.CheckResult;
+    import org.hyperskill.hstest.testcase.TestCase;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Tests extends StageTest<String> {
+        String[] cases = new String[]{"rock",
+                "paper",
+                "scissors"};
+        int loses = 0;
+        int wins = 0;
+        int draws = 0;
+        int startScore = 350;
+        String userName = "Bob";
+
+        public List<TestCase<String>> generate() {
+            String[] validInputCases = {"rock\npaper\nscissors\npaper\nscissors\nrock\npaper\nscissors\n!exit",
+                    "scissors\nscissors\nscissors\n!exit"};
+            String[] invalidInputCases = {"rock\npaper\npaper\nscissors\nblabla\n!exit",
+                    "rock\ninvalid\n!exit",
+                    "rock\nrock\nrock\nrock-n-roll\n!exit"};
+            List<TestCase<String>> tests = new ArrayList<>();
+            //Cases that checks multiple input
+            for (String input : validInputCases) {
+                TestCase<String> testCase = new TestCase<>();
+                testCase.setCheckFunc(this::checkValidInputs);
+                testCase.setAttach(String.valueOf(input.split("\n").length - 1));
+                testCase.setInput(input);
+                tests.add(testCase);
+            }
+            //Cases that check invalid input
+            for (String input : invalidInputCases) {
+                TestCase<String> testCase = new TestCase<>();
+                testCase.setCheckFunc(this::checkInvalidInput);
+                testCase.setInput(input);
+                tests.add(testCase);
+            }
+            //Cases that check using random module
+            String longInput = "rock\n".repeat(100) + "!exit";
+            TestCase<String> testCase = new TestCase<>();
+            testCase.setCheckFunc(this::checkResults);
+            testCase.setAttach("rock");
+            testCase.setInput(longInput);
+            tests.add(testCase);
+            return tests;
+
+        }
+
+        CheckResult checkInvalidInput(String reply, String attach) {
+            if (!reply.toLowerCase().contains("invalid"))
+                return CheckResult.wrong(
+                        "Looks like your program doesn't handle invalid inputs correctly.\n" +
+                                "You should print 'Invalid input' if the input can't be processed.");
+            return CheckResult.correct();
+        }
+
+        CheckResult checkValidInputs(String reply, String attach) {
+            int results = 0;
+            int attachInt = Integer.parseInt(attach);
+            for (String s : reply.toLowerCase().split("\n")) {
+                if (s.contains("sorry"))
+                    results++;
+                if (s.contains("draw"))
+                    results++;
+                if (s.contains("well done"))
+                    results++;
+            }
+            if (results != attachInt) {
+                return CheckResult.wrong(String.format(
+                        "Not enough results of the games were printed!\n " +
+                                "Tried to input %s actions and got %s results of the games.\n" +
+                                "Perhaps your program did not run enough games. " +
+                                "Is it set up correctly to loop until the user inputs ‘!exit’? \n" +
+                                "Also, make sure you print the result  of the game " +
+                                "in the correct format after each valid input!",
+                        attach, results));
+            }
+            return CheckResult.correct();
+        }
+
+        CheckResult checkResults(String reply, String attach) {
+            for (String line : reply.split("\n")) {
+                String lowerLine = line.toLowerCase();
+                if (lowerLine.contains("sorry"))
+                    loses++;
+                else if (lowerLine.contains("draw"))
+                    draws++;
+                else if (lowerLine.contains("well done"))
+                    wins++;
+
+                if (lowerLine.contains("well done") && !lowerLine.contains("scissors"))
+                    return CheckResult.wrong(String.format(
+                            "Wrong result of the game:\n> rock\n%s\nRock can only beat scissors!", line));
+                else if (lowerLine.contains("draw") && !lowerLine.contains("rock"))
+                    return CheckResult.wrong(String.format(
+                            "Wrong result of the game:\n> rock\n%s\n" +
+                                    "The game ends with a draw only when the user " +
+                                    "and the computer both choose the same option", line));
+                else if (lowerLine.contains("sorry") && !lowerLine.contains("paper"))
+                    return CheckResult.wrong(String.format(
+                            "Wrong result of the game:\n> rock\n%s\nOnly paper can beat rock!", line));
+
+            }
+            CheckResult wrongRandomize = CheckResult.wrong(String.format(
+                    "The results of the games: %s wins, %s draws and %s loses\n" +
+                            "The game is too easy to win. Is the computer being too predictable? " +
+                            "The number of wins, draws and loses should be approximately the same.\n" +
+                            "Perhaps you don't use the random module to choose random option.\n" +
+                            "Also, make sure you output the results of the games " +
+                            "the same way as was stated in the examples!\n" +
+                            "If you are sure that you use the random module, try to rerun the tests!\n",
+                    wins, draws, loses));
+
+            if (loses < 20)
+                return wrongRandomize;
+            if (draws < 20)
+                return wrongRandomize;
+            if (wins < 20)
+                return wrongRandomize;
+
+            return CheckResult.correct();
+
+        }
+
+    }
+  learner_created: false
+- name: src/rockpaperscissors/Gesture.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    public enum Gesture {
+        SCISSORS("scissors", "rock", "paper"),
+        ROCK("rock", "paper", "scissors"),
+        PAPER("paper", "scissors", "rock");
+
+        private String name;
+        private String losesAgainst;
+        private String winsAgainst;
+
+        Gesture (String name, String loses, String beats){
+            this.name = name;
+            this.losesAgainst = loses;
+            this.winsAgainst = beats;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getLosesAgainst() {
+            return losesAgainst;
+        }
+
+        public String getWinsAgainst() {
+            return winsAgainst;
+        }
+
+        public static Gesture fromString(String name) {
+            for (Gesture gesture: Gesture.values()) {
+                if (gesture.name.equals(name)) {
+                    return gesture;
+                }
+            }
+            //throw new IllegalArgumentException("No gesture found with the name " + name + ".");
+            throw new IllegalArgumentException("NInvalid input");
+        }
+
+
+    }
+  learner_created: true
+- name: src/rockpaperscissors/Handler.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    import java.util.Random;
+
+    public class Handler {
+
+        public static String chooseTurnResult() {
+            Random random = new Random();
+            int rndNumber = random.nextInt(3);
+            String turnResult = rndNumber == 0  ? "DRAW" : rndNumber == 1 ? "WIN" : "LOSS";
+            return turnResult;
+        }
+
+        public static writeResponse to the player
+
+    }
+  learner_created: true
+- name: src/rockpaperscissors/User.java
+  visible: true
+  learner_created: true
+- name: src/rockpaperscissors/rating.txt
+  visible: true
+  learner_created: true
+- name: rating.txt
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/24617#comment
+status: Failed
+feedback:
+  message: "Exception in test #1\n\njava.lang.NullPointerException: Cannot invoke\
+    \ &quot;rockpaperscissors.User.setRating(int)&quot; because &quot;currentUser&quot;\
+    \ is null\n\tat rockpaperscissors.Handler.outputLineResult(Handler.java:68)\n\t\
+    at rockpaperscissors.Main.main(Main.java:19)\n\nPlease find below the output of\
+    \ your program during this failed test.\nNote that the &#39;&gt;&#39; character\
+    \ indicates the beginning of the input line.\n\n---\n\nEnter your name: &gt; rock\n\
+    Hello, rock\nNo file found: .\\Rock-Paper-Scissors\\Rock-Paper-Scissors\\task\\\
+    src\\rockpaperscissors\\rating.txt\n.\\Rock-Paper-Scissors\\Rock-Paper-Scissors\\\
+    task\\src\\rockpaperscissors\\rating.txt (Impossibile trovare il percorso specificato)\n\
+    &gt; paper"
+  time: "Fri, 17 Feb 2023 23:55:13 UTC"
+record: 3

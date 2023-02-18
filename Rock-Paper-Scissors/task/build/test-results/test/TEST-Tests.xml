@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-18T00:11:01" hostname="PC-EXODUS" time="2.5">
+  <properties/>
+  <testcase name="start" classname="Tests" time="2.5"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+Sorry, but the computer chose paper
+> paper
+File name: rating.txt
+Parent path: null
+There is a draw (paper)
+> scissors
+File name: rating.txt
+Parent path: null
+There is a draw (scissors)
+> paper
+File name: rating.txt
+Parent path: null
+There is a draw (paper)
+> scissors
+File name: rating.txt
+Parent path: null
+There is a draw (scissors)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> paper
+File name: rating.txt
+Parent path: null
+Well done. The computer chose rock and failed
+> scissors
+File name: rating.txt
+Parent path: null
+Well done. The computer chose paper and failed
+> !exit
+Bye!
+?[1;31m
+Start test 2?[0m
+Enter your name: > Bob
+Hello, Bob
+> scissors
+File name: rating.txt
+Parent path: null
+Well done. The computer chose paper and failed
+> scissors
+File name: rating.txt
+Parent path: null
+Well done. The computer chose paper and failed
+> scissors
+File name: rating.txt
+Parent path: null
+Well done. The computer chose paper and failed
+> !exit
+Bye!
+?[1;31m
+Start test 3?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+Sorry, but the computer chose paper
+> paper
+File name: rating.txt
+Parent path: null
+Well done. The computer chose rock and failed
+> paper
+File name: rating.txt
+Parent path: null
+There is a draw (paper)
+> scissors
+File name: rating.txt
+Parent path: null
+There is a draw (scissors)
+> blabla
+Invalid input
+> !exit
+Bye!
+?[1;31m
+Start test 4?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+Sorry, but the computer chose paper
+> invalid
+Invalid input
+> !exit
+Bye!
+?[1;31m
+Start test 5?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock-n-roll
+Invalid input
+> !exit
+Bye!
+?[1;31m
+Start test 6?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> !exit
+Bye!
+?[1;31m
+Start test 7?[0m
+Enter your name: > Bob
+Hello, Bob
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+There is a draw (rock)
+> rock
+Sorry, but the computer chose paper
+> rock
+Sorry, but the computer chose paper
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> rock
+File name: rating.txt
+Parent path: null
+Well done. The computer chose scissors and failed
+> !rating
+Your rating: 5500
+> !exit
+Bye!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

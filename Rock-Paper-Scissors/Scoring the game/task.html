@@ -1,0 +1,62 @@
+<h5 id="description">Description</h5>
+<p>People love to see their results as they're advancing to their goals. So, let's learn how to show the scoreboard! </p>
+<p>When the game starts, users must be able to enter their names. After that, the program should greet users and read a file named <em>rating.txt</em>.</p>
+<p></p><div class="alert alert-warning">In order to execute the test program correctly, name the file "rating.txt" and save it in the current directory, without subdirectories. In tests this file will be created, pre-filled with data. Make sure that you read the data correctly when you start the game</div>
+<p>It is the file that contains the current scores for different players. You can see the file format below: lines containing usernames and their scores, divided by a single space:</p>
+<pre><code class="language-no-highlight">Tim 350
+Jane 200
+Alex 400</code></pre>
+<p>Take the current user score from the file and use it as a basis for counting the score during the game. For example, if a user entered <code class="java">Tim</code>, then their score at the start of the game is <code class="java">350</code>. If a user inputs a name that is not on the list, the program should count the score from <code class="java">0</code>. </p>
+<p></p><div class="alert alert-warning">No need to write anything to the <em>rating.txt</em> file.</div>
+<p>Print the user score with the <code class="java">!rating</code> command. For example, if your rating is <code class="java">0</code>, then the program should print:</p>
+<pre><code class="language-no-highlight">Your rating: 0</code></pre>
+<p>Add <code class="java">50</code> points for every draw, <code class="java">100</code> for every win, and <code class="java">0</code> for losing.</p>
+<h5 id="objectives">Objectives</h5>
+<p>Your program should:</p>
+<ul>
+<li>Output a line <code class="java">Enter your name:</code>. Users enter their names on the same line (not the one following the output!);</li>
+<li>Read input with the name and output a new line: <code class="java">Hello, &lt;name&gt;</code></li>
+<li>Read <em>rating.txt </em>and check whether it contains an entry with the current username. If yes, use the score specified in the file as a starting point. If not, start the score from <code class="java">0</code>.</li>
+<li>Play the game by the rules defined in the previous stages and read the user input;</li>
+<li>If the input is <code class="java">!exit</code>, output <code class="java">Bye!</code> and stop the game;</li>
+<li>If the input is the name of the option, then pick a random option and output a line with the result in the following format (<code class="java">&lt;option&gt;</code> is the name of the option chosen by the program):
+	<ul>
+<li>Loss: <code class="java">Sorry, but the computer chose &lt;option&gt;</code></li>
+<li>Draw: <code class="java">There is a draw (&lt;option&gt;)</code></li>
+<li>Win: <code class="java">Well done. The computer chose &lt;option&gt; and failed</code></li>
+</ul>
+</li>
+<li>For each draw, add <code class="java">50</code> points to the score. For each win, add <code class="java">100</code> points. In case a user loses, don't change the score; </li>
+<li>If the input corresponds to anything else, output <code class="java">Invalid input</code>;</li>
+<li>Restart the game.</li>
+</ul>
+<h5 id="examples">Examples</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+<p><strong>Example 1</strong>:</p>
+<pre><code class="language-no-highlight">Enter your name: &gt; Tim
+Hello, Tim
+&gt; !rating
+Your rating: 350
+&gt; rock
+Sorry, but the computer chose paper
+&gt; paper
+Well done. The computer chose rock and failed
+&gt; scissors
+There is a draw (scissors)
+&gt; !rating
+Your rating: 500
+&gt; !exit
+Bye!</code></pre>
+<p><strong>Example 2</strong>:</p>
+<pre><code class="language-no-highlight">Enter your name: &gt; Chuck
+Hello, Chuck
+&gt; scissors
+There is a draw (scissors)
+&gt; rock
+Well done. The computer chose scissors and failed
+&gt; paper
+Well done. The computer chose rock and failed
+&gt; !rating
+Your rating: 250
+&gt; !exit
+Bye!</code></pre>

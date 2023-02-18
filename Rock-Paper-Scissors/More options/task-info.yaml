@@ -1,0 +1,485 @@
+type: edu
+files:
+- name: src/rockpaperscissors/Main.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    public class Main {
+        public static void main(String[] args) {
+            // write your code here
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: "import org.hyperskill.hstest.stage.StageTest;\nimport org.hyperskill.hstest.testcase.CheckResult;\n\
+    import org.hyperskill.hstest.testcase.TestCase;\n\nimport java.util.ArrayList;\n\
+    import java.util.Arrays;\nimport java.util.List;\nimport java.util.Random;\nimport\
+    \ java.util.stream.Collectors;\n\npublic class Tests extends StageTest<String>\
+    \ {\n    String[] cases = new String[]{\"rock\",\n            \"paper\",\n   \
+    \         \"scissors\"};\n    int loses = 0;\n    int wins = 0;\n    int draws\
+    \ = 0;\n    String fileName = \"rating.txt\";\n    int startScore = 350;\n   \
+    \ String userName = \"Bob\";\n\n    CheckResult checkInvalidInput(String reply,\
+    \ String attach) {\n        if (!reply.toLowerCase().contains(\"invalid\"))\n\
+    \            return CheckResult.wrong(\"Looks like your program doesn't handle\
+    \ invalid inputs correctly.\\n\" +\n                    \"You should print 'Invalid\
+    \ input' if the input can't be processed.\");\n        return CheckResult.correct();\n\
+    \    }\n\n    CheckResult checkValidInputs(String reply, String attach) {\n  \
+    \      int results = 0;\n        int attachInt = Integer.parseInt(attach);\n \
+    \       for (String s : reply.toLowerCase().split(\"\\n\")) {\n            if\
+    \ (s.contains(\"sorry\"))\n                results++;\n            if (s.contains(\"\
+    draw\"))\n                results++;\n            if (s.contains(\"well done\"\
+    ))\n                results++;\n        }\n        if (results != attachInt) {\n\
+    \            return CheckResult.wrong(String.format(\"Not enough results of the\
+    \ games were printed!\\n\" +\n                            \"Tried to input %s\
+    \ actions and got %s results of the games.\\n\" +\n                          \
+    \  \"Perhaps your program did not run enough games. Is it set up correctly to\
+    \ loop \" +\n                            \"until the user inputs ‘!exit’? \\nAlso,\
+    \ make sure you print the result of the \" + \n                            \"\
+    game in the correct format after each valid input!\",\n                    attach,\
+    \ results));\n        }\n        return CheckResult.correct();\n    }\n\n    CheckResult\
+    \ checkResults(String reply, String attach) {\n        for (String s : reply.toLowerCase().split(\"\
+    \\n\")) {\n            if (s.contains(\"sorry\"))\n                loses++;\n\
+    \            else if (s.contains(\"draw\"))\n                draws++;\n      \
+    \      else if (s.contains(\"well done\"))\n                wins++;\n        }\n\
+    \        CheckResult wrongRandomize = CheckResult.wrong(String.format(\n     \
+    \           \"The results of the games: %s wins, %s draws and %s loses\\n\" +\n\
+    \                        \"The game is too easy to win. Is the computer being\
+    \ too predictable? \" +\n                        \"The number of wins, draws and\
+    \ loses should be approximately the same.\\n\" +\n                        \"Perhaps\
+    \ you don't use the random module to choose random option.\\n\" +\n          \
+    \              \"Also, make sure you output the results of \" +\n            \
+    \            \"the games the same way as was stated in the examples!\\n\" +\n\
+    \                        \"If you are sure that you use the random module, try\
+    \ to rerun the tests!\\n\",\n                wins, draws, loses));\n\n       \
+    \ if (loses < 20)\n            return wrongRandomize;\n        if (draws < 20)\n\
+    \            return wrongRandomize;\n        if (wins < 20)\n            return\
+    \ wrongRandomize;\n\n        return CheckResult.correct();\n\n    }\n\n    public\
+    \ List<TestCase<String>> generate() {\n        String[] validInputCases = {String.format(\n\
+    \                \"%s\\n\\nrock\\npaper\\nscissors\\npaper\\nscissors\\nrock\\\
+    npaper\\nscissors\\n!exit\", userName),\n                String.format(\n    \
+    \                    \"%s\\n\\nscissors\\nscissors\\nscissors\\n!exit\", userName)};\n\
+    \        String[] invalidInputCases = {String.format(\"%s\\n\\nrock\\npaper\\\
+    npaper\\nscissors\\nblabla\\n!exit\", userName),\n                String.format(\n\
+    \                        \"%s\\n\\nrock\\ninvalid\\n!exit\", userName),\n    \
+    \            String.format(\n                        \"%s\\n\\nrock\\nrock\\nrock\\\
+    nrock-n-roll\\n!exit\", userName)};\n        List<TestCase<String>> tests = new\
+    \ ArrayList<>();\n        //Cases that checks multiple input\n        for (String\
+    \ input : validInputCases) {\n            TestCase<String> testCase = new TestCase<>();\n\
+    \            testCase.setCheckFunc(this::checkValidInputs);\n            testCase.setAttach(String.valueOf(input.split(\"\
+    \\n\").length - 3));\n            testCase.setInput(input);\n            testCase.addFile(fileName,\
+    \ String.format(\n                    \"%s %s\\nJane 200\\nAlex 400\", userName,\
+    \ startScore));\n            tests.add(testCase);\n        }\n        //Cases\
+    \ that check invalid input\n        for (String input : invalidInputCases) {\n\
+    \            TestCase<String> testCase = new TestCase<>();\n            testCase.setCheckFunc(this::checkInvalidInput);\n\
+    \            testCase.setInput(input);\n            testCase.addFile(fileName,\
+    \ String.format(\"%s %s\\nJane 200\\nAlex 400\", userName, startScore));\n   \
+    \         tests.add(testCase);\n        }\n        //Cases that check using random\
+    \ module\n        String longInput = String.format(\"%s\\n\\n\", userName) + \"\
+    rock\\n\".repeat(100) +\n                \"!exit\";\n        TestCase<String>\
+    \ testCase = new TestCase<>();\n        testCase.setCheckFunc(this::checkResults);\n\
+    \        testCase.setAttach(\"rock\");\n        testCase.setInput(longInput);\n\
+    \        testCase.addFile(fileName, String.format(\"%s %s\\nJane 200\\nAlex 400\"\
+    , userName, startScore));\n        tests.add(testCase);\n        //Case that checks\
+    \ score\n        String[] temp = longInput.split(\"\\n\");\n        temp[temp.length\
+    \ - 2] = \"!rating\";\n        StringBuilder sb = new StringBuilder();\n     \
+    \   for (String t : temp) {\n            sb.append(t);\n            sb.append(\"\
+    \\n\");\n        }\n        longInput = sb.toString();\n        testCase = new\
+    \ TestCase<>();\n        testCase.setCheckFunc(this::checkFile);\n        testCase.setAttach(\"\
+    rock\");\n        testCase.setInput(longInput);\n        testCase.addFile(fileName,\
+    \ String.format(\"%s %s\\nJane 200\\nAlex 400\", userName, startScore));\n   \
+    \     tests.add(testCase);\n        //Case that check advanced options\n     \
+    \   String[] options =\n                (\"rock,gun,lightning,devil,dragon,water,air,paper,\"\
+    \ +\n                        \"sponge,wolf,tree,human,snake,scissors,fire\").split(\n\
+    \                        \",\");\n        sb = new StringBuilder();\n        sb.append(String.format(\n\
+    \                \"%s\\nrock,gun,lightning,devil,dragon,water,air,paper,\" +\n\
+    \                        \"sponge,wolf,tree,human,snake,scissors,fire\\n\", userName));\n\
+    \        Random r = new Random(System.nanoTime());\n        for (int i = 0; i\
+    \ < 20; i++) {\n            sb.append(String.format(\"%s\\n\", options[r.nextInt(options.length)]));\n\
+    \        }\n        sb.append(\"!rating\\n!exit\");\n        String advancedInput\
+    \ = sb.toString();\n        testCase = new TestCase<>();\n        testCase.setCheckFunc(this::checkAdvanced);\n\
+    \        testCase.setAttach(advancedInput);\n        testCase.setInput(advancedInput);\n\
+    \        testCase.addFile(fileName, String.format(\"%s %s\\nJane 200\\nAlex 400\"\
+    , userName, startScore));\n        tests.add(testCase);\n        return tests;\n\
+    \n    }\n\n    CheckResult checkAdvanced(String reply, String attach) {\n    \
+    \    List<String> attachArray = Arrays.stream(attach.split(\"\\n\")).collect(Collectors.toList());\n\
+    \        for (int i = 0; i < 2; i++) {\n            attachArray.remove(0);\n \
+    \           attachArray.remove(attachArray.size() - 1);\n        }\n        List<String>\
+    \ options = Arrays.stream(\n                (\"rock,gun,lightning,devil,dragon,water,air,\"\
+    \ +\n                        \"paper,sponge,wolf,tree,human,snake,scissors,fire\"\
+    )\n                        .split(\",\")).collect(Collectors.toList());\n\n  \
+    \      if (!reply.toLowerCase().contains(\"okay, let's start\"))\n           \
+    \ return CheckResult.wrong(\n                    \"There is no \\\"Okay, let's\
+    \ start\\\" message in the output!\");\n\n        boolean isGameStarted = false;\n\
+    \        int i = 0;\n\n        for (String line : reply.split(\"\\n\")) {\n  \
+    \          if (line.toLowerCase().contains(\"okay, let's start\")) {\n       \
+    \         isGameStarted = true;\n                continue;\n            }\n  \
+    \          if (!isGameStarted)\n                continue;\n            if (i ==\
+    \ attachArray.size())\n                break;\n            String inp = attachArray.get(i);\n\
+    \            int index = options.indexOf(inp);\n            List<String> temp\
+    \ = new ArrayList<>();\n            for (int j = index + 1; j < options.size();\
+    \ j++)\n                temp.add(options.get(j));\n            for (int j = 0;\
+    \ j < index; j++)\n                temp.add(options.get(j));\n            int\
+    \ half = options.size() / 2;\n            List<String> lose = new ArrayList<>();\n\
+    \            for (int j = 0; j < half; j++)\n                lose.add(temp.get(j));\n\
+    \            List<String> win = new ArrayList<>();\n            for (int j = half;\
+    \ j < temp.size(); j++)\n                win.add(temp.get(j));\n\n           \
+    \ String lineLower = line.toLowerCase();\n            if (!(lineLower.contains(\"\
+    draw\") || lineLower.contains(\"sorry\") || lineLower.contains(\"well done\")))\n\
+    \                return CheckResult.wrong(String.format(\n                   \
+    \     \"This answer seems to be wrong:\\\"%s\\\". \\n\" +\n                  \
+    \              \"The game did not respond on a valid option with \" +\n      \
+    \                          \"a correctly formatted win, lose, or draw result.\\\
+    n\", line));\n\n            boolean optionsMentions = false;\n            for\
+    \ (String opt : options)\n                if (lineLower.contains(opt)) {\n   \
+    \                 optionsMentions = true;\n                    break;\n      \
+    \          }\n            if (!optionsMentions)\n                return CheckResult.wrong(String.format(\n\
+    \                        \"This answer seems to be wrong: \\\"%s\\\".\\n\" +\n\
+    \                                \"This answer does not contain the name of a\
+    \ valid \" +\n                                \"option chosen by the computer.\\\
+    n\", line));\n            if (lineLower.contains(\"well done\")) {\n         \
+    \       boolean finded = false;\n                for (String option : win) {\n\
+    \                    if (lineLower.contains(option)) {\n                     \
+    \   finded = true;\n                        break;\n                    }\n  \
+    \              }\n                if (!finded)\n                    return CheckResult.wrong(\"\
+    Wrong win!\");\n            } else if (lineLower.contains(\"draw\") && !lineLower.contains(inp))\n\
+    \                return CheckResult.wrong(\"Wrong draw!\");\n            else\
+    \ if (lineLower.contains(\"sorry\")) {\n                boolean found = false;\n\
+    \                for (String option : lose) {\n                    if (lineLower.contains(option))\
+    \ {\n                        found = true;\n                        break;\n \
+    \                   }\n                }\n                if (!found)\n      \
+    \              return CheckResult.wrong(\"Wrong lose!\");\n            }\n   \
+    \         i += 1;\n        }\n        return CheckResult.correct();\n\n    }\n\
+    \n    CheckResult checkFile(String reply, String attach) {\n        if (!reply.toLowerCase().contains(\"\
+    enter your name\"))\n            return CheckResult.wrong(\n                 \
+    \   \"Seems like you did not offer the user to input their name. \" +\n      \
+    \                      \"Your program should output \\\"Enter your name:\\\" before\
+    \ the start of the game.\\n\");\n        if (!reply.toLowerCase().contains(String.format(\"\
+    hello, %s\", userName).toLowerCase()))\n            return CheckResult.wrong(\n\
+    \                    \"Seems like you did not greet the user. \" +\n         \
+    \                   \"Your program should output \\\"Hello, <user_name>\\\"\\\
+    n\");\n        for (String line : reply.split(\"\\n\")) {\n            String\
+    \ lowerLine = line.toLowerCase();\n            if (lowerLine.contains(\"well done\"\
+    ) && !lowerLine.contains(\"scissors\"))\n                return CheckResult.wrong(String.format(\n\
+    \                        \"Wrong result of the game:\\n> rock\\n%s\\nRock can\
+    \ only beat scissors!\", line));\n            else if (lowerLine.contains(\"draw\"\
+    ) && !lowerLine.contains(\"rock\"))\n                return CheckResult.wrong(String.format(\n\
+    \                        \"Wrong result of the game:\\n> rock\\n%s\\n\" +\n  \
+    \                              \"The game ends with a draw only when user \" +\n\
+    \                                \"option and computer choose the same option\"\
+    , line));\n            else if (lowerLine.contains(\"sorry\") && !lowerLine.contains(\"\
+    paper\"))\n                return CheckResult.wrong(String.format(\n         \
+    \               \"Wrong result of the game:\\n> rock\\n%s\\nOnly paper can beat\
+    \ rock!\", line));\n        }\n        draws = 0;\n        loses = 0;\n      \
+    \  wins = 0;\n        for (String s : reply.toLowerCase().split(\"\\n\")) {\n\
+    \            if (s.contains(\"sorry\")) {\n                loses++;\n        \
+    \    } else if (s.contains(\"draw\")) {\n                draws++;\n          \
+    \  } else if (s.contains(\"well done\"))\n                wins++;\n        }\n\
+    \        int correctPoints = startScore + wins * 100 + draws * 50;\n        if\
+    \ (!reply.contains(String.valueOf(correctPoints)))\n            return CheckResult.wrong(\n\
+    \                    \"Looks like you incorrectly calculated the player's score!\\\
+    n\" +\n                            \"Make sure that you took into account the\
+    \ \" +\n                            \"user's initial score written in the file.\\\
+    n\" +\n                            \"For each draw, add 50 point to the score.\
+    \ \" +\n                            \"For each user's win, add 100 to his/her\
+    \ score.\\n\" +\n                            \"In case the user loses, don't change\
+    \ the score.\_\");\n        return CheckResult.correct();\n\n    }\n}\n"
+  learner_created: false
+- name: src/rockpaperscissors/rating.txt
+  visible: true
+  text: |-
+    Tim 350
+    Jane 250
+    Alex 400
+    Luca 150
+  learner_created: true
+- name: src/rockpaperscissors/Gesture.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    public enum Gesture {
+        SCISSORS("scissors", "rock", "paper"),
+        ROCK("rock", "paper", "scissors"),
+        PAPER("paper", "scissors", "rock");
+
+        private String name;
+        private String losesAgainst;
+        private String winsAgainst;
+
+        Gesture (String name, String loses, String beats){
+            this.name = name;
+            this.losesAgainst = loses;
+            this.winsAgainst = beats;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getLosesAgainst() {
+            return losesAgainst;
+        }
+
+        public String getWinsAgainst() {
+            return winsAgainst;
+        }
+
+        public static Gesture fromString(String name) {
+            for (Gesture gesture: Gesture.values()) {
+                if (gesture.name.equals(name)) {
+                    return gesture;
+                }
+            }
+            //throw new IllegalArgumentException("No gesture found with the name " + name + ".");
+            throw new IllegalArgumentException("Invalid input");
+        }
+
+
+    }
+  learner_created: true
+- name: src/rockpaperscissors/Handler.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    import java.io.*;
+    import java.nio.file.Path;
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.Random;
+    import java.util.Scanner;
+
+    import static rockpaperscissors.Gesture.*;
+
+    public class Handler {
+
+        final static int WIN_POINTS = 100;
+        final static int DRAW_POINTS = 50;
+
+        public static String greetUser(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter your name: ");
+            String userName = scanner.nextLine();
+            System.out.printf("Hello, %s%n", userName);
+            return userName.trim();
+        }
+
+        public static User findUser(String name) {
+
+
+            // Path for the CHECK
+            //Path path = Path.of("rating.txt");
+
+            // LOCAL Path
+            Path path = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
+
+            User[] users = Handler.getUsersFromFile(path);
+
+            boolean isFound = false;
+            for (User user : users) {
+                if (user.getName().equals(name)) {
+                    isFound = true;
+                    return user;
+                }
+            }
+            if (!isFound) {
+                try {
+                    return createUser(name, path);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            return null;
+        }
+
+        public static String chooseTurnResult() {
+            Random random = new Random();
+            int rndNumber = random.nextInt(3);
+            String turnResult = rndNumber == 0  ? "DRAW" : rndNumber == 1 ? "WIN" : "LOSS";
+            return turnResult;
+        }
+
+        public static void outputLineResult(String userInput, User currentUser) {
+
+            try{
+                Gesture chosenGesture = Gesture.fromString(userInput);
+                String matchResult = chooseTurnResult();
+
+                // Points management
+                int earnedPoints = 0;
+                if (matchResult.equals("WIN")) {
+                    earnedPoints = WIN_POINTS;
+                } else if (matchResult.equals("DRAW")) {
+                    earnedPoints = DRAW_POINTS;
+                }
+                if (earnedPoints !=0) {
+                    currentUser.setRating(earnedPoints);
+                }
+
+                String message = "";
+                switch (chosenGesture) {
+                    case SCISSORS -> {
+                        if (matchResult.equals("LOSS")) {
+                            message = "Sorry, but the computer chose " + SCISSORS.getLosesAgainst();
+                        } else if (matchResult.equals("WIN")) {
+                            message = "Well done. The computer chose " + SCISSORS.getWinsAgainst() + " and failed";
+                        } else {
+                            message = "There is a draw (" + chosenGesture.getName() + ")";
+                        }
+                    }
+                    case ROCK -> {
+                        if (matchResult.equals("LOSS")) {
+                            message = "Sorry, but the computer chose " + ROCK.getLosesAgainst();
+                        } else if (matchResult.equals("WIN")) {
+                            message = "Well done. The computer chose " + ROCK.getWinsAgainst() + " and failed";
+                        } else {
+                            message = "There is a draw (" + chosenGesture.getName() + ")";
+                        }
+                    }
+                    case PAPER -> {
+                        if (matchResult.equals("LOSS")) {
+                            message = "Sorry, but the computer chose " + PAPER.getLosesAgainst();
+                        } else if (matchResult.equals("WIN")) {
+                            message = "Well done. The computer chose " + PAPER.getWinsAgainst() + " and failed";
+                        } else {
+                            message = "There is a draw (" + chosenGesture.getName() + ")";
+                        }
+                    }
+                }
+
+                System.out.println(message);
+
+            } catch(IllegalArgumentException | FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        public static String takeUserInput(){
+            Scanner scanner = new Scanner(System.in);
+            return scanner.nextLine();
+        }
+
+        public static User createUser(String name, Path path) throws IllegalArgumentException, IOException {
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be null or empty");
+            }
+            User user = new User(name, 0);
+            addNewUserToFile(path, name, 0);
+            return user;
+        }
+
+        private static void addNewUserToFile(Path path, String name, int rating) throws IOException {
+            //File file = new File(pathFileName);
+            File file = path.toFile();
+            FileWriter writer = new FileWriter(file, true);
+            writer.write("\n" + name + " " + rating);
+            writer.close();
+        }
+
+        public static User[] getUsersFromFile(Path path) {
+            List<User> userList = new ArrayList<>();
+
+            //File file = new File(fileName);
+            File file = path.toFile();
+            try(Scanner scanner = new Scanner(file)) {
+
+                while (scanner.hasNextLine()) {
+                    String[] parts = scanner.nextLine().split(" ");
+                    String name = parts[0];
+                    int rating = Integer.parseInt(parts[1]);
+                    userList.add(new User(name, rating));
+                }
+
+            } catch (FileNotFoundException e) {
+                System.out.println("No file found: " + path.toString());
+            }
+
+            // Convert the list to an array and return it
+            return userList.toArray(new User[userList.size()]);
+        }
+
+    }
+  learner_created: true
+- name: src/rockpaperscissors/User.java
+  visible: true
+  text: |
+    package rockpaperscissors;
+
+    import java.io.*;
+    import java.nio.file.Path;
+    import java.util.Scanner;
+
+    public class User {
+
+        private String name;
+        private int rating;
+
+        public User(String name, int rating) {
+            this.name = name;
+            this.rating = rating;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getRating() {
+            return rating;
+        }
+
+        public void setRating(int earnedPoints) throws FileNotFoundException {
+            this.rating = this.getRating() + earnedPoints;
+
+            // Path for the CHECK
+            //Path pathInputFile = Path.of("rating.txt");
+            //Path pathTempFile = Path.of("temp.txt");
+
+            // LOCAL Path
+            Path pathInputFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
+            Path pathTempFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/temp.txt");
+
+
+            File inputFile = pathInputFile.toFile();
+            File tempFile = pathTempFile.toFile();
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                String currentLine;
+                int count = 0;
+                while ((currentLine = reader.readLine()) != null) {
+                    String[] parts = currentLine.split(" ");
+                    String username = parts[0];
+                    if (username.equals(this.name)) {
+                        currentLine = username + " " + this.rating;
+                    }
+                    writer.write(count != 0 ? System.getProperty("line.separator") : "");
+                    writer.write(currentLine);
+                    count++;
+                }
+                reader.close();
+                writer.close();
+                inputFile.delete();
+                tempFile.renameTo(inputFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+
+
+        }
+    }
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/24619#comment
+status: Unchecked
+record: -1

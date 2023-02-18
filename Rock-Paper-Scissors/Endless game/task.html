@@ -1,0 +1,35 @@
+<h5 id="description">Description</h5>
+<p>We came up with a really cool idea in the previous stage. But the game is really short. Nobody plays a single shot of rock paper scissors. We need to find a way to run the game forever. Not literally, though — let's implement a way to stop your program.</p>
+<p>Improve your program so that it will take an unlimited number of inputs until users enter <code class="java">!exit</code>. After entering <code class="java">!exit</code>, the program should print <code class="java">Bye!</code> and terminate. Also, let's try to handle invalid inputs: your program should be ready to handle typos in user input, or when there's a mishmash instead of a normal command. So, if the input doesn't correspond to any known command (an option or <code class="java">!exit</code>), your program should output the following line: <code class="java">Invalid input</code>.</p>
+<h5 id="objectives">Objectives</h5>
+<p>Your program should:</p>
+<ul>
+<li>Take input from users;</li>
+<li>If the input contains <code class="java">!exit</code>, output <code class="java">Bye!</code> and stop the game;</li>
+<li>If the input is the name of the option, then pick a random option and output a line with the result of the game in the following format (<code class="java">&lt;option&gt;</code> is the name of the option chosen by the program):
+    <ul>
+<li>Loss: <code class="java">Sorry, but the computer chose &lt;option&gt;</code></li>
+<li>Draw: <code class="java">There is a draw (&lt;option&gt;)</code></li>
+<li>Win: <code class="java">Well done. The computer chose &lt;option&gt; and failed</code></li>
+</ul>
+</li>
+<li>If the input corresponds to anything else, output <code class="java">Invalid input</code>;</li>
+<li>Repeat it all over again.</li>
+</ul>
+<h5 id="example">Example</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+<p><strong>Example 1</strong>:</p>
+<pre><code class="language-no-highlight">&gt; rock
+Well done. The computer chose scissors and failed
+&gt; paper
+Well done. The computer chose rock and failed
+&gt; paper
+There is a draw (paper)
+&gt; scissors
+Sorry, but the computer chose rock
+&gt; rokc
+Invalid input
+&gt; xit!
+Invalid input
+&gt; !exit
+Bye!</code></pre>

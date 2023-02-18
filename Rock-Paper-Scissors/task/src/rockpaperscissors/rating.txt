@@ -1,0 +1,5 @@
+Tim 350
+Jane 250
+Alex 400
+Luca 150
+Lua 50

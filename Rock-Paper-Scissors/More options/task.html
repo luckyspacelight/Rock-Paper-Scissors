@@ -1,0 +1,81 @@
+<h5 id="description">Description</h5>
+<p>How about new game rules? The original game has a fairly small choice of options.</p>
+<p>The extended version of the game makes it hard to draw. Now, your program should accept alternative lists of options, like <code class="java">Rock</code>, <code class="java">Paper</code>, <code class="java">Scissors</code>, <code class="java">Lizard</code>, <code class="java">Spock</code>, and so on. You can take the following options (don't take their relations into account; we'll speak about them further on):</p>
+<p style="text-align: center;"><img alt="" height="546" src="https://ucarecdn.com/eb3f7a5b-98ea-4b11-a3b7-4797ee774258/" width="538"/></p>
+<p>In this stage, before the game starts, users can choose the options. After entering the name, they should provide a list of the options separated by a comma. For example:</p>
+<pre><code class="language-no-highlight">rock,paper,scissors,lizard,spock</code></pre>
+<p>If users input an empty line, start the game with default options: <code class="java">rock</code>, <code class="java">paper</code>, and <code class="java">scissors</code>. </p>
+<p>Once the game options are defined, output <code class="java">Okay, let's start</code>.</p>
+<p>Regardless of the chosen options, your program, obviously, should identify which option beats which. You can use the following algorithm.</p>
+<p>Let's imagine that the following options are involved in the game "Rock Fire Scissors Sponge Paper Air Water". Order is important.</p>
+<p style="text-align: center;"><img alt="" height="254" name="33.png" src="https://ucarecdn.com/93c12dc7-ff41-46cf-9ecb-632cd84735f7/" width="752"/></p>
+<p>Let us represent this line as a closed circle: </p>
+<p style="text-align: center;"><img alt="" height="495" name="hands.jpg" src="https://ucarecdn.com/e545be24-2b6a-4e19-9500-75926e81c1e4/" width="460"/></p>
+<p>First, every option produces a draw when opposed to itself.</p>
+<p style="text-align: center;"><img alt="" height="495" name="hands.png" src="https://ucarecdn.com/e74c88bc-0f56-41b3-96bf-8f53a8fb7d37/" width="460"/></p>
+<p style="text-align: center;">If Rock opposed Rock - it's a draw.</p>
+<p>Secondly, every option beats half of the other options and is defeated by another half.</p>
+<p>For "Rock":</p>
+<p style="text-align: center;"><img alt="" height="495" name="hands3.png" src="https://ucarecdn.com/728a4d39-bff9-4890-bcee-12e5af56772f/" width="460"/></p>
+<p style="text-align: center;">The first half of the options after Rock are Fire Scissors and Sponge (Rock beat it). Another half (after first half) - Paper, Air and Water are defeated Rock.</p>
+<p>For "Fire":</p>
+<p style="text-align: center;"><img alt="" height="495" name="hands5.png" src="https://ucarecdn.com/e9fc13ea-3742-45bb-ad2e-64bfe8477ff3/" width="460"/></p>
+<p style="text-align: center;">The first half of the options after Fire are Scissors, Sponge and Paper (Fire beat it). Another half (after first half) - Air, Water and Rock are defeated Fire.</p>
+<p>And so on</p>
+<p>How to determine which options are stronger or weaker? Take the list of options provided by the user and pick the option that you want to know the relationships of. Take all other options from the user's list. Add them to the list of options that precede the chosen option. Now, you have another list of options that don't include the user's option with a different order of elements inside. First are the options that follow the chosen one in the original list; then, there are the ones that precede it. So, in this "new" list, the first half of the options defeat the "chosen" option, and the second half is beaten by it.</p>
+<p></p><div class="alert alert-warning">Once again, never mind the "links" between the options in the picture above. They are only for illustration purposes</div>
+<p>For example, the user's list of options is <code class="java">rock,paper,scissors,lizard,spock</code>. You want to know what options are weaker than <code class="java">lizard</code>. By looking at the list <code class="java">spock,rock,paper,scissors</code> you realize that <code class="java">spock</code> and <code class="java">rock</code> beat <code class="java">lizard</code>. <code class="java">Paper</code> and <code class="java">scissors</code> are defeated by it. For spock, it'll be almost the same, but it'll get beaten by <code class="java">rock </code>and <code class="java">paper</code>, and prevail over <code class="java">scissors </code>and <code class="java">lizard</code>.</p>
+<p>Of course, this is not the most efficient way to determine which option prevails over which. You are welcome to try to develop other methods of tackling this problem. </p>
+<h5 id="objectives">Objectives</h5>
+<p>Your program should:</p>
+<ul>
+<li>Output a line <code class="java">Enter your name: </code>. Users enter their names on the same line (not the one following the output);</li>
+<li>Read the input with the username and output <code class="java">Hello, &lt;name&gt;</code>;</li>
+<li>Read <em>rating.txt </em>and check whether it contains an entry with the current username. If yes, use the score specified in the file as a starting point. If not, start the score from <code class="java">0</code>;</li>
+<li>Read the input with the list of options for the game (options are separated by comma). If the input is an empty line, play with the default options; </li>
+<li>Output a line <code class="java">Okay, let's start</code>;</li>
+<li>Play the game by the rules defined in the previous stages and read the user's input;</li>
+<li>If the input is <code class="java">!exit</code>, output <code class="java">Bye!</code> and stop the game;</li>
+<li>If the input is the name of the option, then pick a random option and output a line with the result of the game in the following format (<code class="java">&lt;option&gt;</code> is the name of the option chosen by the program):
+	<ul>
+<li>Loss: <code class="java">Sorry, but the computer chose &lt;option&gt;</code></li>
+<li>Draw: <code class="java">There is a draw (&lt;option&gt;)</code></li>
+<li>Win: <code class="java">Well done. The computer chose &lt;option&gt; and failed</code></li>
+</ul>
+</li>
+<li>For each draw, add <code class="java">50</code> points to the score. For each user's win, add <code class="java">100</code> to their score. In case of a loss, don't change the score;</li>
+<li>If input corresponds to anything else, output <code class="java">Invalid input</code>;</li>
+<li>Restart the game (with the same options defined before the start of the game).</li>
+</ul>
+<h5 id="examples">Examples</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+<p><strong>Example 1</strong>:</p>
+<pre><code class="language-no-highlight">Enter your name: &gt; Tim
+Hello, Tim
+&gt; rock,gun,lightning,devil,dragon,water,air,paper,sponge,wolf,tree,human,snake,scissors,fire
+Okay, let's start
+&gt; rock
+Sorry, but the computer chose air
+&gt; !rating
+Your rating: 0
+&gt; rock
+Well done. The computer chose sponge and failed
+&gt; !rating
+Your rating: 100
+&gt; !exit
+Bye!</code></pre>
+<p><strong>Example 2</strong>:</p>
+<pre><code class="language-no-highlight">Enter your name: &gt; Tim
+Hello, Tim
+&gt; 
+Okay, let's start
+&gt; rock
+Well done. The computer chose scissors and failed
+&gt; paper
+Well done. The computer chose rock and failed
+&gt; paper
+There is a draw (paper)
+&gt; scissors
+Sorry, but the computer chose rock
+&gt; !exit
+Bye!</code></pre>
