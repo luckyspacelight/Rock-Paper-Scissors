@@ -1,5 +1,7 @@
 Tim 350
 Jane 250
 Alex 400
-Luca 150
+Luca 400
 Lua 50
+lizard 0
+LUca 0

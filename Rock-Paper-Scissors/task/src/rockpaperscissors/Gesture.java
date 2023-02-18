@@ -37,5 +37,4 @@ public enum Gesture {
         throw new IllegalArgumentException("Invalid input");
     }
 
-
 }

@@ -19,7 +19,7 @@ public class Main {
                 if (options.isEmpty() || options == null) {
                     Handler.outputLineResult(userInput, currentUser);
                 } else {
-                    Handler.outputLineResultAdvanced(options);
+                    Handler.outputLineResultAdvanced(userInput, options);
                 }
             }
         }

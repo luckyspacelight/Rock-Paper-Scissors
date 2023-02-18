@@ -57,6 +57,18 @@ public class Handler {
         return turnResult;
     }
 
+    public static String chooseComputerGesture(String[] optionsList) {
+        Random random = new Random();
+        int rndNumber = random.nextInt(optionsList.length);
+
+        for (int i = 0; i < optionsList.length; i++) {
+            if (rndNumber == i) {
+                return optionsList[i];
+            }
+        }
+        throw new IllegalArgumentException("Invalid computer response");
+    }
+
     public static void outputLineResult(String userInput, User currentUser) {
 
         try{
@@ -112,15 +124,71 @@ public class Handler {
         }
     }
 
-    public static void outputLineResultAdvanced(String options) {
-        System.out.println("play with the advanced version");
+    public static void outputLineResultAdvanced(String userInput, String options) {
+
+        // Creat the Option List
         String[] optionsList = options.split(",");
         for (int i = 0; i < optionsList.length; i++) {
             optionsList[i] = optionsList[i].trim();
-            System.out.println(optionsList[i]);
+        }
+
+        try {
+            String chosenGesture = checkInput(optionsList, userInput);
+            String pcChoice = chooseComputerGesture(optionsList);
+            String result = getTheResult(optionsList, chosenGesture, pcChoice);
+
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
 
     }
+
+    public static String getTheResult(String[] optionsList, String chosenGesture, String computerChoice) {
+
+        int defeatedNumber = (optionsList.length - 1) / 2;
+
+        // Find UserInput position
+        int userGesturePosition = 0;
+        int distanceBetweenChoices = 0;
+
+        for (int i = 0; i < optionsList.length; i++) {
+            if (chosenGesture.equals(optionsList[i])) {
+                userGesturePosition = i;
+                for (int j = i, count = 0; true; j++, count++) {
+                    if (computerChoice.equals(optionsList[j])) {
+                        distanceBetweenChoices = count;
+                        break;
+                    }
+                    // To run the for loop again...
+                    j = j == optionsList.length - 1 ? -1 : j;
+                }
+                break;
+            }
+        }
+
+        if (distanceBetweenChoices == 0) {
+            System.out.println("There is a draw (" + computerChoice + ")");
+            return "DRAW";
+        } else if (distanceBetweenChoices <= defeatedNumber) {
+            System.out.println("Well done. The computer chose " +  computerChoice + " and failed");
+            return "WIN";
+        } else if (distanceBetweenChoices > defeatedNumber) {
+            System.out.println("Sorry, but the computer chose " + computerChoice);
+            return "LOSS";
+        }
+        return null;
+
+    }
+
+    public static String checkInput(String[] optionsList, String userInput) {
+        for (int i = 0; i < optionsList.length; i++) {
+            if (userInput.equals(optionsList[i])){
+                return userInput;
+            }
+        }
+        throw new IllegalArgumentException("Invalid input");
+    }
+
 
     public static String takeUserInput(){
         Scanner scanner = new Scanner(System.in);
