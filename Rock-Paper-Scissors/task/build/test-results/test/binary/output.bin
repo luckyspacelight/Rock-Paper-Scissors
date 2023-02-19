@@ -2,53 +2,37 @@
 Start test 1[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
+> rock
+There is a draw (rock)
+> paper
+/Well done. The computer chose rock and failed
+> scissors
+There is a draw (scissors)
+> paper
+There is a draw (paper)
+> scissors
+There is a draw (scissors)
 > rock
 %Sorry, but the computer chose paper
 > paper
-File name: rating.txt
-Parent path: null
-There is a draw (paper)
+(Sorry, but the computer chose scissors
 > scissors
-File name: rating.txt
-Parent path: null
 There is a draw (scissors)
-> paper
-File name: rating.txt
-Parent path: null
-There is a draw (paper)
-> scissors
-File name: rating.txt
-Parent path: null
-There is a draw (scissors)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> paper
-File name: rating.txt
-Parent path: null
-/Well done. The computer chose rock and failed
-> scissors
-File name: rating.txt
-Parent path: null
-0Well done. The computer chose paper and failed
 > !exit
 Bye!
 [1;31m
 Start test 2[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
 > scissors
-File name: rating.txt
-Parent path: null
-0Well done. The computer chose paper and failed
+$Sorry, but the computer chose rock
 > scissors
-File name: rating.txt
-Parent path: null
-0Well done. The computer chose paper and failed
+$Sorry, but the computer chose rock
 > scissors
-File name: rating.txt
-Parent path: null
 0Well done. The computer chose paper and failed
 > !exit
 Bye!
@@ -56,20 +40,16 @@
 Start test 3[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
 > rock
-%Sorry, but the computer chose paper
+There is a draw (rock)
 > paper
-File name: rating.txt
-Parent path: null
-/Well done. The computer chose rock and failed
+(Sorry, but the computer chose scissors
 > paper
-File name: rating.txt
-Parent path: null
-There is a draw (paper)
+(Sorry, but the computer chose scissors
 > scissors
-File name: rating.txt
-Parent path: null
-There is a draw (scissors)
+0Well done. The computer chose paper and failed
 	> blabla
 Invalid input
 > !exit
@@ -78,8 +58,10 @@
 Start test 4[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
 > rock
-%Sorry, but the computer chose paper
+There is a draw (rock)
 
 > invalid
 Invalid input
@@ -89,16 +71,14 @@
 Start test 5[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
-> rock
-%Sorry, but the computer chose paper
 > rock-n-roll
 Invalid input
 > !exit
@@ -107,615 +87,307 @@
 Start test 6[0m
 Enter your name: > Bob
 Hello, Bob
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
+> 
+Okay, let's start
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
+%Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
+%Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+3Well done. The computer chose scissors and failed
+> rock
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
 There is a draw (rock)
 > rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
 There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
 > !exit
 Bye!
 [1;31m
 Start test 7[0m
 Enter your name: > Bob
 Hello, Bob
+> 
+Okay, let's start
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-%Sorry, but the computer chose paper
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-%Sorry, but the computer chose paper
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
@@ -724,79 +396,158 @@
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
-> rock
-File name: rating.txt
-Parent path: null
-There is a draw (rock)
-> rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
-3Well done. The computer chose scissors and failed
+There is a draw (rock)
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
 3Well done. The computer chose scissors and failed
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
 There is a draw (rock)
 > rock
 %Sorry, but the computer chose paper
 > rock
 %Sorry, but the computer chose paper
 > rock
-File name: rating.txt
-Parent path: null
 3Well done. The computer chose scissors and failed
 > rock
-File name: rating.txt
-Parent path: null
+%Sorry, but the computer chose paper
+> rock
 3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+3Well done. The computer chose scissors and failed
+> rock
+There is a draw (rock)
+> rock
+There is a draw (rock)
+> rock
+%Sorry, but the computer chose paper
+> rock
+%Sorry, but the computer chose paper
 
 > !rating
-Your rating: 5500
+Your rating: 4950
+> !exit
+Bye!
+[1;31m
+Start test 8[0m
+Enter your name: > Bob
+Hello, Bob
+]> rock,gun,lightning,devil,dragon,water,air,paper,sponge,wolf,tree,human,snake,scissors,fire
+Okay, let's start
+> lightning
+%Sorry, but the computer chose devil
+> fire
+&Sorry, but the computer chose dragon
+> lightning
+&Sorry, but the computer chose dragon
+> tree
+0Well done. The computer chose devil and failed
+> paper
+4Well done. The computer chose lightning and failed
+> devil
+%Sorry, but the computer chose water
+> wolf
+.Well done. The computer chose air and failed
+> rock
+%Sorry, but the computer chose water
+> tree
+1Well done. The computer chose dragon and failed
+> lightning
+#Sorry, but the computer chose air
+> wolf
+There is a draw (wolf)
+> gun
+)Sorry, but the computer chose lightning
+> tree
+1Well done. The computer chose sponge and failed
+	> dragon
+%Sorry, but the computer chose human
+> fire
+3Well done. The computer chose scissors and failed
+> wolf
+0Well done. The computer chose paper and failed
+> snake
+0Well done. The computer chose water and failed
+> fire
+%Sorry, but the computer chose devil
+> devil
+There is a draw (devil)
+	> sponge
+%Sorry, but the computer chose human
+
+> !rating
+Your rating: 1250
 > !exit
 Bye!

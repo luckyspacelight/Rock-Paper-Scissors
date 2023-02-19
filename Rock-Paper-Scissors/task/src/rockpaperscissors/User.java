@@ -30,12 +30,12 @@ public class User {
         this.rating = this.getRating() + earnedPoints;
 
         // Path for the CHECK
-        //Path pathInputFile = Path.of("rating.txt");
-        //Path pathTempFile = Path.of("temp.txt");
+        Path pathInputFile = Path.of("rating.txt");
+        Path pathTempFile = Path.of("temp.txt");
 
         // LOCAL Path
-        Path pathInputFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
-        Path pathTempFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/temp.txt");
+        // Path pathInputFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
+        // Path pathTempFile = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/temp.txt");
 
 
         File inputFile = pathInputFile.toFile();
@@ -63,12 +63,6 @@ public class User {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
 
     }
 }

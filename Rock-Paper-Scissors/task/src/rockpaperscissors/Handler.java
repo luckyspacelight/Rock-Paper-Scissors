@@ -26,35 +26,33 @@ public class Handler {
 
 
         // Path for the CHECK
-        //Path path = Path.of("rating.txt");
+        Path path = Path.of("rating.txt");
 
         // LOCAL Path
-        Path path = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
+        //Path path = Path.of("Rock-Paper-Scissors/task/src/rockpaperscissors/rating.txt");
 
         User[] users = Handler.getUsersFromFile(path);
 
-        boolean isFound = false;
         for (User user : users) {
             if (user.getName().equals(name)) {
-                isFound = true;
+                //isFound = true;
                 return user;
             }
         }
-        if (!isFound) {
-            try {
-                return createUser(name, path);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+
+        try {
+            return createUser(name, path);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
+
         return null;
     }
 
     public static String chooseTurnResult() {
         Random random = new Random();
         int rndNumber = random.nextInt(3);
-        String turnResult = rndNumber == 0  ? "DRAW" : rndNumber == 1 ? "WIN" : "LOSS";
-        return turnResult;
+        return rndNumber == 0  ? "DRAW" : rndNumber == 1 ? "WIN" : "LOSS";
     }
 
     public static String chooseComputerGesture(String[] optionsList) {
@@ -124,7 +122,7 @@ public class Handler {
         }
     }
 
-    public static void outputLineResultAdvanced(String userInput, String options) {
+    public static void outputLineResultAdvanced(String userInput, String options, User currentUser) {
 
         // Creat the Option List
         String[] optionsList = options.split(",");
@@ -135,25 +133,27 @@ public class Handler {
         try {
             String chosenGesture = checkInput(optionsList, userInput);
             String pcChoice = chooseComputerGesture(optionsList);
-            String result = getTheResult(optionsList, chosenGesture, pcChoice);
-
-        } catch(IllegalArgumentException e) {
+            getTheResult(optionsList, chosenGesture, pcChoice, currentUser);
+        } catch(IllegalArgumentException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
     }
 
-    public static String getTheResult(String[] optionsList, String chosenGesture, String computerChoice) {
+    public static void getTheResult(String[] optionsList, String chosenGesture,
+                                      String computerChoice, User currentUser) throws FileNotFoundException {
 
         int defeatedNumber = (optionsList.length - 1) / 2;
 
         // Find UserInput position
-        int userGesturePosition = 0;
+        //int userGesturePosition = 0;
         int distanceBetweenChoices = 0;
+        int earnedPoints;
+
 
         for (int i = 0; i < optionsList.length; i++) {
             if (chosenGesture.equals(optionsList[i])) {
-                userGesturePosition = i;
+                //userGesturePosition = i;
                 for (int j = i, count = 0; true; j++, count++) {
                     if (computerChoice.equals(optionsList[j])) {
                         distanceBetweenChoices = count;
@@ -168,27 +168,29 @@ public class Handler {
 
         if (distanceBetweenChoices == 0) {
             System.out.println("There is a draw (" + computerChoice + ")");
-            return "DRAW";
+            earnedPoints = DRAW_POINTS;
+            currentUser.setRating(earnedPoints);
+            //return "DRAW";
         } else if (distanceBetweenChoices <= defeatedNumber) {
-            System.out.println("Well done. The computer chose " +  computerChoice + " and failed");
-            return "WIN";
-        } else if (distanceBetweenChoices > defeatedNumber) {
             System.out.println("Sorry, but the computer chose " + computerChoice);
-            return "LOSS";
+            //return "LOSS";
+        } else {
+            System.out.println("Well done. The computer chose " +  computerChoice + " and failed");
+            earnedPoints = WIN_POINTS;
+            currentUser.setRating(earnedPoints);
+            //return "WIN";
         }
-        return null;
 
     }
 
     public static String checkInput(String[] optionsList, String userInput) {
-        for (int i = 0; i < optionsList.length; i++) {
-            if (userInput.equals(optionsList[i])){
+        for (String s : optionsList) {
+            if (userInput.equals(s)) {
                 return userInput;
             }
         }
         throw new IllegalArgumentException("Invalid input");
     }
-
 
     public static String takeUserInput(){
         Scanner scanner = new Scanner(System.in);
@@ -207,22 +209,21 @@ public class Handler {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         User user = new User(name, 0);
-        addNewUserToFile(path, name, 0);
+        addNewUserToFile(path, name);
         return user;
     }
 
-    private static void addNewUserToFile(Path path, String name, int rating) throws IOException {
+    private static void addNewUserToFile(Path path, String name) throws IOException {
         //File file = new File(pathFileName);
         File file = path.toFile();
         FileWriter writer = new FileWriter(file, true);
-        writer.write("\n" + name + " " + rating);
+        writer.write("\n" + name + " " + 0);
         writer.close();
     }
 
     public static User[] getUsersFromFile(Path path) {
         List<User> userList = new ArrayList<>();
 
-        //File file = new File(fileName);
         File file = path.toFile();
         try(Scanner scanner = new Scanner(file)) {
 
@@ -234,11 +235,12 @@ public class Handler {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("No file found: " + path.toString());
+            System.out.println("No file found: " + path);
         }
 
         // Convert the list to an array and return it
-        return userList.toArray(new User[userList.size()]);
+        //return userList.toArray(new User[userList.size()]);
+        return userList.toArray(new User[0]);
     }
 
 }
